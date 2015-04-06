@@ -1,0 +1,33 @@
+html,body{
+    height:  100%;
+    margin:  0;
+    background-color: #E5E5E5;
+    font-family:  'RobotoDraft', sans-serif;
+}
+core-header-panel{
+    height:70px;
+}
+section{
+    top:  10px;
+    width:  30%;
+    height:  300px;
+    float: left;
+}
+.dark{
+    background-color: #333;
+}
+.dark core-item{
+    color:  red;
+    fill:  #fafafa;
+}
+core-item.core-selected{
+    background-color: #777;
+    color: white;
+}
+#main{
+    top:  10px;
+    width:  70%;
+    height: 300px; 
+    float:  right;
+    background-color: #ccc;
+}

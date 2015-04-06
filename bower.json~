@@ -1,0 +1,24 @@
+{
+  "name": "polymerFirstTest",
+  "version": "0.0.5",
+  "description": "polymer resume",
+  "authors": [
+    "Radamantis Torres"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-tabs": "Polymer/paper-tabs#~0.5.5",
+    "core-header-panel": "Polymer/core-header-panel#~0.5.5",
+    "core-ajax": "Polymer/core-ajax#~0.5.5"
+  },
+  "resolutions": {
+    "webcomponentsjs": "^0.6.0"
+  }
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <title>Radamantis</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+  
+  <link rel="import" href="/bower_components/polymer/polymer.html">
+  <link rel="import" href="/bower_components/font-roboto/roboto.html">
+  <link rel="import" href="/bower_components/core-menu/core-menu.html">
+  <link rel="import" href="/bower_components/core-item/core-item.html">
+  <link rel="import" href="/bower_components/core-icons/core-icons.html">
+  <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css"  href="styles.css">
+  <!-- external htmls -->
+  <link rel="import" href="/internals/current.html" id="currentIm">
+  <link rel="import" href="/internals/experience.html" id="expIm">
+  <link rel="import" href="/internals/skills.html" id="skillsIm">
+
+
+  <body unresolved>
+    <core-header-panel>
+      <core-toolbar>
+      <h2>Radamantis</h2>
+      </core-toolbar>
+    </core-header-panel>
+    <section class="dark">  
+      <core-menu selected="0" on-core-select="{{selectAction}}">
+	<core-item icon="home" label="Current"></core-item>
+	<core-item icon="book" label="Experience"></core-item>
+	<core-item icon="apps" label="Skills"></core-item>
+      </core-menu>
+    </section>
+   <div id="main">
+     
+   </div>
+  </body>
+<script>
+  //we need some vars to keep the imported content
+  var contentCurrent, contentExp, contentSkills; 
+  
+  var sel = document.querySelector('core-menu');
+  sel.addEventListener('core-select', function(e){
+  //console.log("Info: "+sel);
+  if(e.detail.isSelected){
+    console.log("Selected"+sel.selected);
+    main.removeChild(main.childNodes[0]);
+    switch(sel.selected){
+      case 0:
+        main.appendChild(document.importNode(contentCurrent, true));
+        break;
+      case 1:
+        main.appendChild(document.importNode(contentExp, true));
+        break;
+      case 2:
+       main.appendChild(document.importNode(contentSkills, true));
+       break;
+    }
+  }
+  });
+
+  window.addEventListener('HTMLImportsLoaded', function(e){
+    console.log("All imports loaded");
+  });
+
+  window.addEventListener('WebComponentsReady',function(e){
+    console.log("READY!!");
+    var linkCurrent = document.getElementById('currentIm');
+    contentCurrent = linkCurrent.import.querySelector('#current');
+    main.appendChild(document.importNode(contentCurrent,true));
+    var linkExp = document.getElementById('expIm');
+    contentExp = linkExp.import.querySelector('#experience');
+    //main.appendChild(document.importNode(contentExp,true));
+    var linkSkills = document.getElementById('skillsIm');
+    contentSkills = linkSkills.import.querySelector('#skills');
+  });
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>POLYMER</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="/bower_components/polymer/polymer.html">
+  <link rel="import" href="/bower_components/font-roboto/roboto.html">
+  <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="/bower_components/core-ajax/core-ajax.html">
+  <link rel="stylesheet" type="text/css"  href="styles.css">
+
+  <body unresolved>
+<core-header-panel>
+  <core-toolbar>
+    <paper-tabs selected="0" selectedindex="0" id="paper-tabs" >
+      <paper-tab id="paper-tab" active>ABOUT</paper-tab>
+      <paper-tab id="paper-tab1">PORTFOLIO</paper-tab>
+      <paper-tab id="paper-tab2">CONTACT</paper-tab>
+    </paper-tabs>
+    </core-toolbar>
+  </core-header-panel>
+  </body>
+<script>
+  var tabs= document.querySelector('paper-tabs');
+  tabs.addEventListener('core-select, function(e){
+  if(e.detail.isSelected){
+  console.log("Selected: "+tabs.selected);
+  }
+});
+</script>
+</html>
